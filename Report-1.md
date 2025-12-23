@@ -18,7 +18,7 @@ Correlation:  performed using `@timestamp`, `winlog.event_data.IpAddress`, `even
 ## Analyst Assessment 
 The sequence of failed authentication attempts followed by a successful one across multiple machines strongly indicates a credential compromise and active lateral movement rather than user error.
 
-## Recommended Action 
+## Recommended Action 
 - Account blocking or suspension 
 - Review the activity of the user on the machines that were affected 
 - Increase surveillance on this kind of action 
