@@ -8,44 +8,44 @@ A network-based authentication to a company domain, using a legitimate user acco
 
 ## Detection Signal 
 
-Signal 1: Network Logon  
+**Signal 1: Network Logon**  
 
 Event ID 4624 with the type 3 logon indicates a network-based logon with a non-administrative account.
 
-Signal 2: Network-based Administrative Share Access  
+**Signal 2: Network-based Administrative Share Access**  
 
 Event ID 5145 indicates access to the Administrative share (ADMIN$, IPC$) from a remote source, when triggered by a standard user and not an administrative or management account. This suggests a remote interaction with the system.
 
-Signal 3: Scheduled Task Creation by a non-Privileged account  
+**Signal 3: Scheduled Task Creation by a non-Privileged account**  
 
 Event ID 4698 records the creation of a scheduled task on the host machine. When triggered by a domain user outside the expected administrative workflow, this may indicate a suspicious task-based persistence execution.
 
-Signal 4: Service Creation Under System Account  
+**Signal 4: Service Creation Under System Account**  
 
 Event ID 7045 indicates the installation of a Windows service. Services are usually created during software installation or administrative maintenance. Service creation directly after a network logon might strongly indicate remote code execution.
 
-Signal 5: Execution via WMI 
+**Signal 5: Execution via WMI**  
 
 Event ID 4688 indicates a process creation where there is a spawning of a command interpreter or scripting engine with the parent process of wmiprvse.exe.
 
-Correlation:  
+**Correlation:**  
 
 Network authentication from a remote machine not belonging to an administrative or management group, followed in a short window of time by an act of post-exploitation executed by the same account of authentication from the same source  IP, establishes a strong temporal correlation between authentication and execution.
 
 ## Detection Gap 
-Lack of authentication context:  
+**Lack of authentication context:**  
 
  Event ID 4698 does not include the source IP address or logon type, which limits attribution to a specific remote authentication event.
 
-Execution uncertainty:  
+**Execution uncertainty:**  
 
 Task creation does not confirm task execution; additional telemetry (e.g., task run events or process creation logs) is required to confirm impact.
 
-Limited origin attribution:  
+**Limited origin attribution:**  
 
 Event ID 5145 confirms remote access but does not directly identify the command or tool responsible for task creation.
 
-Incomplete events:  
+**Incomplete events:** 
 
 Absence of event code 4688 prevents visibility into the process creation and parent process.
 Lack of command-line and  parent process restricts the identification of the execution method.
