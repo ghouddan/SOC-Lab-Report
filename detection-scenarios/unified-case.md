@@ -24,6 +24,10 @@ Signal 4: Service Creation Under System Account
 
 Event ID 7045 indicates the installation of a Windows service. Services are usually created during software installation or administrative maintenance. Service creation directly after a network logon might strongly indicate remote code execution.
 
+Signal 5: Execution via WMI 
+
+Event ID 4688 indicates a process creation where there is a spawning of a command interpreter or scripting engine with the parent process of wmiprvse.exe.
+
 Correlation:  
 
 Network authentication from a remote machine not belonging to an administrative or management group, followed in a short window of time by an act of post-exploitation executed by the same account of authentication from the same source  IP, establishes a strong temporal correlation between authentication and execution.
@@ -44,7 +48,8 @@ Event ID 5145 confirms remote access but does not directly identify the command 
 Incomplete events:  
 
 Absence of event code 4688 prevents visibility into the process creation and parent process.
-Lack of command-line and  parent process restricts the identification of the execution method. 
+Lack of command-line and  parent process restricts the identification of the execution method.
+WMI execution detection depends on the process creation visibility (4688)
 
 ## False Positive
 - Legitimate administrative activity, such as software deployment, patching, or a system management tool, may create a scheduled task remotely.
