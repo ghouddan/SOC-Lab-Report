@@ -1,5 +1,6 @@
 
 # Sigma Rule Format  
+```
 title: Remote Command Execution via Service Creation  
 id: d18818be-175e-42bc-b93f-23ad48a071c2  
 status: experimental  
@@ -34,3 +35,4 @@ falsepositives:
     - Software deployment tools  
     - Authorized maintenance windows  
 level: high  
+``` 
