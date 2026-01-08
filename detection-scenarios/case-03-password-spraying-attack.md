@@ -3,7 +3,7 @@
 ## Detection Objective  
 Detect password spraying attempts against domain-joined hosts using network-based authentication.	
 
-## ttack Chaine  
+## Attack Chaine  
 An attacker attempts network-based authentication against one or more domain-joined hosts using multiple distinct domain accounts over a fixed or low-frequency time interval, often from the same or a small set of source IP addresses.
 
 ## Detection Signal  
@@ -21,7 +21,7 @@ Correlation:
 Limited Source Attribution  
     Event ID 4767 provides visibility into the credential validation attempts but does not include the source IP address or the originating information, limiting the attribution without the correlation to the endpoint logon events. 
 
-    Low-and-slow password spraying attempts may evade threshold-based detection when attempts are sufficiently spaced to avoid account lockout pr alerting rules. 
+Low-and-slow password spraying attempts may evade threshold-based detection when attempts are sufficiently spaced to avoid account lockout pr alerting rules. 
 
 ## False Positive 
 
