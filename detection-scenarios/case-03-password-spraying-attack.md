@@ -1,4 +1,4 @@
-#Password Spraying Attack 
+# Password Spraying Attack   
 
 ## Detection Objective  
 Detect password spraying attempts against domain-joined hosts using network-based authentication.	
