@@ -1,12 +1,12 @@
 # Soc Lab 
 
-In this repository I document various case scenario of attack variating from intial access to data exfiltration.
-Each case scenario contains the following: 
-- Attack Description 
-- Detection Case 
+In this repository, I document various attack scenarios, ranging from initial access to data exfiltration. Each scenario contains the following:
+
+- Attack Description
+- Detection Case
 - Detection Rule
 
-### **Here is the mapping of repository contents**:
+## **Here is the mapping of the repository contents:**
 
 | Case Scenario                      | Attack Description | Detection Case                                                                                                                                                                     | Detection Rule                                                                                                              |
 |------------------------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
