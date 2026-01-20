@@ -7,10 +7,10 @@ Detect abnormal Kerberos service ticket requests indicative of service enumerati
 Multiple events of Kerberos service ticket requests (TGS)  within a short time window, issued by a single domain user account targeting several unrelated service accounts (SPN) while relying on a single source IP address.
 
 ## Detection Signal   
-    **Signal 1: Multiple Kerberos service tickets requests**
+**Signal 1: Multiple Kerberos service tickets requests**
 Event Id 4769 was observed several times on the domain control machine. This indicates a Kerberos service ticket (TGS) request targeting multiple unrelated service accounts issued by a single domain user account from the same source IP address. 
 
-    **Correlation** 
+**Correlation** 
 Multiple Kerberos services within ticket requests within a short time window, targeting multiple unrelated service accounts and using a single domain user account, deviate from typical user authentication behavior.
 
 ## Detection Gap    
