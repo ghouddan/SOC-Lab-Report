@@ -14,7 +14,7 @@ Event Id 4769 was observed several times on the domain control machine. This ind
 Multiple Kerberos services within ticket requests within a short time window, targeting multiple unrelated service accounts and using a single domain user account, deviate from typical user authentication behavior.
 
 ## Detection Gap    
-Kerberoasting activity does not inherently generate a malicious or failed authentication event. Event ID 4769 alone does not confirm credential compromise, as ticket extraction happened and password cracking happen off line outside of the monitored environment. detection therefore rely o behavior baselining and anomaly detection rather than deterministic indicators. 
+Kerberoasting activity does not inherently generate a malicious or failed authentication event. Event ID 4769 alone does not confirm credential compromise, as ticket extraction and offline password cracking occur outside of the monitored environment. Detection therefore rely o behavior baselining  and anomaly detection rather than deterministic indicators. 
 
 ## False Positive    
 - Legitimate applications or scripts performing service discovery
