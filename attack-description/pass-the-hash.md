@@ -1,6 +1,6 @@
 ## Attack: Two-phase attack: dump credentials, then authenticate using hash instead of password.
 
-### Phase 1 - Credential Dumping:
+### Phase 1 - Credential Dumping:
 
 - Connect to target machine with admin rights
 - Dump local SAM database (contains password hashes)
