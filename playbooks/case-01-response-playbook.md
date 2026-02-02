@@ -1,9 +1,9 @@
-# Playbook Title: Remote Command Execution Via Service Creation - Response Playbook
+# Remote Command Execution Via Service Creation - Response Playbook
 
 **Alert Triggered:** [Remote Command Execution via Service Creation]    
 **MITRE ATT&CK:** T1543.003, T1021    
 **Severity:** Hight    
-**MTTR Target:** 15 min triage, 2 hours full containment    
+**MTTR Target:** 2 hours full containment    
 
 ## Initial Triage 15 minutes
 
