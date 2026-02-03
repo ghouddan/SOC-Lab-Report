@@ -166,12 +166,12 @@ SecurityEvent
 
 | Type | Value | context |
 |------|-------|---------|
-| User Account|<TargetUserName>|ffected user account |
-| Hostname|<ComputerName>|Affected host |
-| IP Address|<IpAddress>|Source IP of the remote connection |
-| Scheduled Task Name|<TaskName>|Name of the created scheduled task |
-| Scheduled Task Path|<TaskPath>|Path of the created scheduled task |
-| Process Name|<NewProcessName>|Process spawned by the scheduled task |
+| User Account | <TargetUserName> | Affected user account  | 
+|  Hostname | <ComputerName> | Affected host  | 
+|  IP Address | <IP_Address> | Source IP of the remote connection  | 
+|  Scheduled Task Name | <TaskName> | Name of the created scheduled task  | 
+|  Scheduled Task Path | <TaskPath> | Path of the created scheduled task  | 
+|  Process Name | <NewProcessName> | Process spawned by the scheduled task  | 
 
 ### Escalation Criteria
 **Escalate to Tier 2 if:**     
