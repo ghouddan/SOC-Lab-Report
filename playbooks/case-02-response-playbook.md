@@ -53,7 +53,7 @@ Get-ScheduledTask -ComputerName "<ComputerName>" | Where-Object {$_.TaskPath -no
 Get-ScheduledTaskInfo -ComputerName "<ComputerName>" -TaskName "<TaskName>" | Format-List *
 ``` 
 ### Key Questions To Answer
-- [ ] Was the scheduled task execution after creation 
+- [ ] Was the scheduled task executed after creation 
 - [ ] Does the affected user have a history of similar actions 
 - [ ] Was the activity from an internal of external IP address 
 - [ ] is there any indication of a process spawning after the scheduled task creation
@@ -68,7 +68,7 @@ Get-ScheduledTaskInfo -ComputerName "<ComputerName>" -TaskName "<TaskName>" | Fo
 - [ ] Block any process related to the scheduled task action 
 - [ ] Isolate the affected host from the network if evidence of lateral movement or data exfiltration is found 
 - [ ] Force a password reset on the affected user account
-- [ ] block the IP address if it's external or suspicious
+- [ ] Block the IP address if it's external or suspicious
 - [ ] Monitor the affected host and user for any further suspicious activity
 
 ### Commands to Run 
@@ -85,7 +85,8 @@ Disable-ADAccount -Identity "<affected_user>"
 
 ```Powershell
 # Force password rest for the affected user
-Set-ADAccountPassword -Identity "<affected_user>" -Reset -NewPassword (ConvertTo-SecureString "TempP@ss123!$(Get-Random)" -AsPlainText -Force)
+Set-ADAccountPassword -Identity "<affected_user>" 
+-Reset -NewPassword (ConvertTo-SecureString "TempP@ss123!$(Get-Random)" -AsPlainText -Force)
 Set-ADUser -Identity "<affected_user>" -ChangePasswordAtLogon $true 
 ```
 
@@ -101,7 +102,9 @@ Set-ADUser -Identity "<affected_user>" -ChangePasswordAtLogon $true
 ### Commands to Run 
 ```powershell
 # Save scheduled task details
-Get-ScheduledTask -ComputerName "<ComputerName>" -TaskName "<TaskName>" | Export-ScheduledTask | Out-File -FilePath "C:\IR\ScheduledTask_<TaskName>_details.xml"
+Get-ScheduledTask -ComputerName "<ComputerName>" -TaskName "<TaskName>" 
+| Export-ScheduledTask 
+| Out-File -FilePath "C:\IR\ScheduledTask_<TaskName>_details.xml"
 ```
 
 ```powershell
@@ -121,7 +124,8 @@ wbadmin start backup -backupTarget:C:\IR\ -include:C: -allCritical -quiet
 
 ```Powershell
 # Delete the scheduled task from the affected host
-Invoke-Command -ComputerName "<ComputerName>" -ScriptBlock {Unregister-ScheduledTask -TaskName "<TaskName>" -TaskPath "<TaskPath>" -confirm:$false}
+Invoke-Command -ComputerName "<ComputerName>" 
+-ScriptBlock {Unregister-ScheduledTask -TaskName "<TaskName>" -TaskPath "<TaskPath>" -confirm:$false}
 ```
 
 ```Powershell
@@ -142,14 +146,14 @@ SecurityEvent
 ### Restoration steps 
 - [ ] Re-enable the affected user account after verification 
 - [ ] Monitor the affected host and user for 72 hours post-incident
-- [ ] rejoin the host to the network if isolated
+- [ ] Rejoin the host to the network if isolated
 - [ ] Ensure all systems are patched and up to date
 
 ## Post-Incident
 ### Documentation
 - [ ] Document the incident details, actions taken, and lessons learned
 - [ ] Record the TTPs used and update detection rules accordingly
-- [ ] document any gaps in detection and mitigation strategies
+- [ ] Document any gaps in detection and mitigation strategies
 
 ### Lessons Learned 
 - [ ] Why did this attack succeed (credential weakness, missing control, configuration gap)
@@ -162,12 +166,12 @@ SecurityEvent
 
 | Type | Value | context |
 |------|-------|---------|
-| User Account | <TargetUserName> | Affected user account |
-| Hostname | <ComputerName> | Affected host |
-| IP Address | <IpAddress> | Source IP of the remote connection |
-| Scheduled Task Name | <TaskName> | Name of the created scheduled task |
-| Scheduled Task Path | <TaskPath> | Path of the created scheduled task |
-| Process Name | <NewProcessName> | Process spawned by the scheduled task |
+| User Account|<TargetUserName>|ffected user account |
+| Hostname|<ComputerName>|Affected host |
+| IP Address|<IpAddress>|Source IP of the remote connection |
+| Scheduled Task Name|<TaskName>|Name of the created scheduled task |
+| Scheduled Task Path|<TaskPath>|Path of the created scheduled task |
+| Process Name|<NewProcessName>|Process spawned by the scheduled task |
 
 ### Escalation Criteria
 **Escalate to Tier 2 if:**     
