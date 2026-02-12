@@ -1,9 +1,9 @@
 # RDP Brute Force  (Initial access)
 
-**Alert triggered:** Inbound traffic to port 3389 from an external IP 
-**MITRE ATT&CK:** T1110.003
-**Severity:** High
-**MTTR:** 15 minutes triage 1 hour 15 minutes full containment
+**Alert triggered:** Inbound traffic to port 3389 from an external IP    
+**MITRE ATT&CK:** T1110.003    
+**Severity:** High    
+**MTTR:** 15 minutes triage 1 hour 15 minutes full containment    
 
 ## Initial Triage 15 minutes 
 ### Validate the alerts 
@@ -78,11 +78,11 @@ SecurityEvent
 - [ ] If compromise what action did the attacker take after 
 
 ### Decision Point 
-** Proceed to Path A or B based on the Investigation**
+**Proceed to Path A or B based on the Investigation**
 
 ## Path A: Brute force failed 
 ### Containment 15 minutes
-**No user account compromise - focus on network blocking 
+**No user account compromise - focus on network blocking** 
 
 - [ ] Block source IP at firewall level 
 - [ ] Monitor for additional attempt from the same IpAddress
@@ -113,7 +113,7 @@ SecurityEvent
 
 ###  containment 30 minutes 
 ### Immediate Actions
--[ ] terminate active RDP session 
+- [ ] terminate active RDP session 
 ```powershell
 Invoke-Command - ComputerName "<Compromise_Computer>" -ScriptBlock{
 query session
@@ -188,7 +188,7 @@ Invoke-Command -ComputerName "<Compromise_Computer>" -ScriptBlock{
 | Ip address | <Ip_address> | Brute force source |
 | User Account | <Compromise_user> | compromise account (path B) | 
 | Host Name | <Compromise_Computer> | compromise computer (path B) |
-| Session Start | <Timestamp> | time stamp of the establishment of the rdp session|
+| Session Start | <Time_stamp> | time stamp of the establishment of the rdp session|
 | Artifacts Created | <Task/File/Process> | persistence mechanisms (path B) |
 
 ### Lessons Learned
