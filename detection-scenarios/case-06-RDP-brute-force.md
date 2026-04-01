@@ -18,12 +18,12 @@ Multiple event ID 4625 with:
 - Logon type 3 (if NLA is enabled)    
 - Same source IP    
 - multiple distinctive usernames    
-- Within a fixed interval of time
+- Within a fixed interval of time    
 **Signal 4: Credential Compromise**    
 Event ID 4624 from the same source IP.    
 - With logon type 3, it indicates a successful credential validation (NAL phase)
 - With logon type 10 confirm interactive RDP session establishment
-## Detection Gap 
+## Detection Gap 
 - No visibility into the originating process on the attacker side (as expected).
 - Limited payload visibility in the Sysmon Event ID 3.
 - If NLA is disabled, log pattern shift (type 10 failure instead of type 3). Detection login must adapt.
