@@ -18,12 +18,11 @@ detection:
     Selection:
         EventID: 4769  
         TicketEncryptionType: '0x17'
-        ServiceName|endswith: '$'
-    Filter_exclude:
-            ServiceName|Startswith:
-                - 'krbtgt'
-                - '$'
-    condition: Selection and not Filter_exclude
+    Filter_machine_accounts:
+        ServiceName|endwith: '$'
+    Filter_krbtgt:
+            ServiceName: 'krbtgt'
+    condition: Selection and not (Filter_machine_accounts or Filter_krbtgt)
 false positives:  
     - Legitimate service discovery scripts
     - Misconfigured services
