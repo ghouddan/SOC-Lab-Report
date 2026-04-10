@@ -22,7 +22,7 @@ Multiple event ID 4625 with:
 - multiple distinctive usernames    
 - Within a fixed interval of time     
     
-**Signal 4: Credential Compromise**
+**Signal 4: Credential Compromise**    
 Event ID 4624 from the same source IP.    
 - With logon type 3, it indicates a successful credential validation (NAL phase)    
 - With logon type 10 confirm interactive RDP session establishment    
